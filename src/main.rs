@@ -32,6 +32,7 @@ struct State {
 
 impl State {
     fn new() -> Self {
+        let mut ecs = World::default();
         let mut rng = RandomNumberGenerator::new();
         let map_builder = MapBuilder::new(&mut rng);
         let mut resources = Resources::default();
@@ -54,6 +55,7 @@ impl GameState for State {
         ctx.cls();
         self.resources.insert(ctx.key);
         self.systems.execute(&mut self.ecs, &mut self.resources);
+        render_draw_buffer(ctx).expect("Render error");
     }
 }
 

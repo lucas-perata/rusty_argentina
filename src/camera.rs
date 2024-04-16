@@ -1,4 +1,4 @@
-use crate::{player, prelude::*};
+use crate::prelude::*;
 
 pub struct Camera {
     pub left_x: i32,
