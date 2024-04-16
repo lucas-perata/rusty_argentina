@@ -1,0 +1,37 @@
+#+TITLE:Rusty Argentina 
+
+** Descripción 
+Dungeon crawler con niveles generados de forma procedural, monstruos y turn-based. 
+
+** Historia 
+Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son casi imparables. Las leyendas describen un amuleto o más bien un objeto mítico que puede terminar con la plaga. Luego de una larga noche en el bar, el héroe le promete a sus compatriotas que los salvará.
+
+** Game loop 
+1. Ingresar al nivel 
+2. Exploración y revelación del mapa 
+3. Aparición de enemigos 
+4. Powerups que aumentan su fortaleza 
+5. Encuentra salida para pasar al siguiente nivel 
+
+** MVP 
+1. Mapa básico 
+2. Jugador y movimiento 
+3. Spawn monstruos y combate 
+4. Agregado de vida y sistema de combate 
+5. Pociones curativas 
+6. Game over 
+7. Agregado del amuleto (manos de perón) y victoria 
+
+*** Adicionales 
+1. Field of view 
+2. Mejora de diseño de los calabozos 
+3. Temas 
+    + UCR 
+    + PRO 
+    + Milicos 
+    + Menem 
+4. Agregado de armas 
+5. Data-driven enemigos 
+6. Efectos visuales 
+7. Score - puntaje general
+
