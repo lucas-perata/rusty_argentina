@@ -10,3 +10,7 @@ pub struct Render {
 pub struct Player;
 pub struct Enemy;
 pub struct MovingRandomly;
+pub struct WantsToMove {
+    pub entity: Entity,
+    pub destination: Point,
+}
