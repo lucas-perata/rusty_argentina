@@ -21,8 +21,7 @@ Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son c
 5. Pociones curativas 
 6. Game over 
 7. Agregado del amuleto (manos de perón) y victoria 
-
-*** Adicionales 
+** Adicionales 
 1. Field of view 
 2. Mejora de diseño de los calabozos 
 3. Temas 
@@ -35,3 +34,6 @@ Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son c
 6. Efectos visuales 
 7. Score - puntaje general
 
+
+** DONE fix mouse over info not rendering
+** TODO fix map not always connecting
