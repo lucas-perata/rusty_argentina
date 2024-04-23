@@ -14,6 +14,10 @@ pub struct WantsToMove {
     pub entity: Entity,
     pub destination: Point,
 }
+pub struct WantsToAttack {
+    pub attacker: Entity,
+    pub victim: Entity,
+}
 pub struct Health {
     pub current: i32,
     pub max: i32,
