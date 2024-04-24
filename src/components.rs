@@ -23,3 +23,4 @@ pub struct Health {
     pub max: i32,
 }
 pub struct Name(pub String);
+pub struct ChasingPlayer;
