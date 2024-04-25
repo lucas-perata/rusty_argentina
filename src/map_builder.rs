@@ -1,6 +1,6 @@
 use crate::prelude::*;
 
-const NUM_ROOMS: usize = 2;
+const NUM_ROOMS: usize = 10;
 pub struct MapBuilder {
     pub map: Map,
     pub rooms: Vec<Rect>,

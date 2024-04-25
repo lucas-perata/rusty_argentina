@@ -37,3 +37,5 @@ Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son c
 
 ** DONE fix mouse over info not rendering
 ** TODO fix map not always connecting
+** TODO fix dije position 
+** TODO monsters not chasing
