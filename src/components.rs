@@ -24,3 +24,5 @@ pub struct Health {
 }
 pub struct Name(pub String);
 pub struct ChasingPlayer;
+pub struct Item;
+pub struct AmuletOfYala;
