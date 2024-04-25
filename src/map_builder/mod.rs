@@ -1,6 +1,9 @@
 use crate::prelude::*;
 use empty::EmptyArchitect;
 use rooms::RoomsArchitect;
+
+use self::automata::CellularAutomataArchitect;
+mod automata;
 mod empty;
 mod rooms;
 
@@ -20,7 +23,7 @@ pub struct MapBuilder {
 
 impl MapBuilder {
     pub fn new(rng: &mut RandomNumberGenerator) -> Self {
-        let mut architect = RoomsArchitect {};
+        let mut architect = CellularAutomataArchitect {};
         architect.new(rng)
     }
 
@@ -112,5 +115,33 @@ impl MapBuilder {
                 self.apply_horizontal_tunnel(prev.x, new.x, new.y);
             }
         }
+    }
+
+    // Scan all possible monster spawns for 50
+    fn spawn_monsters(&self, start: &Point, rng: &mut RandomNumberGenerator) -> Vec<Point> {
+        const NUM_MONSTER: usize = 50;
+
+        // iterator that includes floors + 10 tiles from player_start
+        let mut spawnable_tiles: Vec<Point> = self
+            .map
+            .tiles
+            .iter()
+            .enumerate()
+            .filter(|(idx, t)| {
+                **t == TileType::Floor
+                    && DistanceAlg::Pythagoras.distance2d(*start, self.map.index_to_point2d(*idx))
+                        > 10.0
+            })
+            .map(|(idx, _)| self.map.index_to_point2d(idx))
+            .collect();
+
+        let mut spawns = Vec::new();
+        for _ in 0..NUM_MONSTER {
+            // random tiles that can be used
+            let target_index = rng.random_slice_index(&spawnable_tiles).unwrap();
+            spawns.push(spawnable_tiles[target_index].clone());
+            spawnable_tiles.remove(target_index);
+        }
+        spawns
     }
 }
