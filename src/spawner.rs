@@ -1,5 +1,7 @@
 use crate::prelude::*;
 
+//TODO: Add monster to spawn with the amulet
+
 pub fn spawn_player(ecs: &mut World, pos: Point) {
     ecs.push((
         Player,
