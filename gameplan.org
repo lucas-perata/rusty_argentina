@@ -39,3 +39,10 @@ Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son c
 ** TODO fix map not always connecting
 ** TODO fix dije position 
 ** TODO monsters not chasing
+
+Music -> 
+https://docs.rs/rodio/latest/rodio/
+https://nolanprice.com/post/rust-game-pt2/
+Expand the basics -> 
+https://bfnightly.bracketproductions.com/chapter_47.html
+
