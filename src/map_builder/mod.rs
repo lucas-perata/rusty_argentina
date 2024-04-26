@@ -1,9 +1,12 @@
 use crate::prelude::*;
-use empty::EmptyArchitect;
-use rooms::RoomsArchitect;
+// use empty::EmptyArchitect;
+// use rooms::RoomsArchitect;
 
-use self::automata::CellularAutomataArchitect;
+use self::{
+    automata::CellularAutomataArchitect, drunkard::DrunkardsWalkArchitect, rooms::RoomsArchitect,
+};
 mod automata;
+mod drunkard;
 mod empty;
 mod rooms;
 
@@ -23,8 +26,14 @@ pub struct MapBuilder {
 
 impl MapBuilder {
     pub fn new(rng: &mut RandomNumberGenerator) -> Self {
-        let mut architect = CellularAutomataArchitect {};
-        architect.new(rng)
+        // Box is like a smart pointer
+        let mut architect: Box<dyn MapArchitect> = match rng.range(0, 3) {
+            0 => Box::new(DrunkardsWalkArchitect {}),
+            1 => Box::new(RoomsArchitect {}),
+            _ => Box::new(CellularAutomataArchitect {}),
+        };
+        let mut mb = architect.new(rng);
+        mb
     }
 
     fn fill(&mut self, tile: TileType) {
