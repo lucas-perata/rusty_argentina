@@ -4,7 +4,7 @@
 Dungeon crawler con niveles generados de forma procedural, monstruos y turn-based. 
 
 ** Historia 
-Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son casi imparables. Las leyendas describen un amuleto o más bien un objeto mítico que puede terminar con la plaga. Luego de una larga noche en el bar, el héroe le promete a sus compatriotas que los salvará.
+Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son casi imparables. Las leyendas describen un amuleto o más bien un objeto mítico que puede terminar con la plaga. Luego de una larga noche en el bar, el héroe le promete a sus compatriotas que los salvará. Capaz lo que tengo que hacer es hacerlo un poco más simbólico, para evitar el tinte político.
 
 ** Game loop 
 1. Ingresar al nivel 

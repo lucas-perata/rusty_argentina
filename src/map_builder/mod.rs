@@ -2,13 +2,16 @@ use crate::prelude::*;
 // use empty::EmptyArchitect;
 // use rooms::RoomsArchitect;
 
+// TODO: Add other means of map builders algos
 use self::{
     automata::CellularAutomataArchitect, drunkard::DrunkardsWalkArchitect, rooms::RoomsArchitect,
 };
 mod automata;
 mod drunkard;
 mod empty;
+mod prefab;
 mod rooms;
+use prefab::apply_prefab;
 
 trait MapArchitect {
     fn new(&mut self, rng: &mut RandomNumberGenerator) -> MapBuilder;
@@ -33,6 +36,7 @@ impl MapBuilder {
             _ => Box::new(CellularAutomataArchitect {}),
         };
         let mut mb = architect.new(rng);
+        apply_prefab(&mut mb, rng);
         mb
     }
 

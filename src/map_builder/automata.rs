@@ -17,6 +17,7 @@ impl CellularAutomataArchitect {
 
     fn count_neighbors(&self, x: i32, y: i32, map: &Map) -> usize {
         let mut neighbours = 0;
+        // TODO: out of bounds error
         for iy in -1..=1 {
             for ix in -1..=1 {
                 if !(ix == 0 && iy == 0) && map.tiles[map_idx(x + ix, y + iy)] == TileType::Wall {
