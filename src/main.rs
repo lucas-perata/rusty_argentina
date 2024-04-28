@@ -2,12 +2,14 @@ mod camera;
 mod components;
 mod map;
 mod map_builder;
+mod sound;
 mod spawner;
 mod systems;
 mod turn_state;
 
 mod prelude {
     pub use crate::components::*;
+    pub use crate::sound::*;
     pub use crate::spawner::*;
     pub use crate::systems::*;
     pub use bracket_lib::prelude::*;
@@ -25,6 +27,7 @@ mod prelude {
 }
 
 use prelude::*;
+use rodio::OutputStream;
 
 struct State {
     ecs: World,
@@ -159,6 +162,8 @@ impl GameState for State {
 }
 
 fn main() -> BError {
+    let (_stream, stream_handle) = OutputStream::try_default().unwrap();
+    let sound = Sound::new(&stream_handle);
     let context = BTermBuilder::simple80x50()
         .with_title("Argentina oxidada")
         .with_fps_cap(30.0)
@@ -170,6 +175,8 @@ fn main() -> BError {
         .with_simple_console_no_bg(DISPLAY_WIDTH, DISPLAY_HEIGHT, "dungeonfont.png")
         .with_simple_console_no_bg(SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2, "terminal8x8.png")
         .build()?;
+
+    drop(sound);
 
     main_loop(context, State::new())
 }

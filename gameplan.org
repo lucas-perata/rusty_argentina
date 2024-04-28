@@ -34,13 +34,16 @@ Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son c
 6. Efectos visuales 
 7. Score - puntaje general
 
+** TODOs
+*** DONE fix mouse over info not rendering
+*** TODO fix map not always connecting
+*** TODO fix dije position 
+*** TODO fix dije aparece entre paredes
+*** TODO fix automata map builder out of bound
+*** TODO monsters not chasing diagonally 
 
-** DONE fix mouse over info not rendering
-** TODO fix map not always connecting
-** TODO fix dije position 
-** TODO monsters not chasing
-
-Music -> 
+** Agregados generales
+Music y efectos de sonido -> 
 https://docs.rs/rodio/latest/rodio/
 https://nolanprice.com/post/rust-game-pt2/
 Expand the basics -> 
