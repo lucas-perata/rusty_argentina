@@ -5,7 +5,7 @@ use std::io::BufReader;
 
 pub struct Sound {
     background_sink: Sink,
-    effects_sink: Sink,
+    // effects_sink: Sink,
 }
 
 impl Sound {
@@ -21,12 +21,12 @@ impl Sound {
         return Sound { background_sink };
     }
 
-    pub fn play_sound_effects(&self, file_names: Vec<String>) {
-        for (file_name) in file_names {
-            let file_path = format!("resources/sounds/{}", file_name);
-            let file = BufReader::new(File::open(file_path).unwrap());
-            let source = Decoder::new(file).unwrap();
-            self.effects_sink.append(source);
-        }
-    }
+    // pub fn play_sound_effects(&self, file_names: Vec<String>) {
+    //     for (file_name) in file_names {
+    //         let file_path = format!("resources/sounds/{}", file_name);
+    //         let file = BufReader::new(File::open(file_path).unwrap());
+    //         let source = Decoder::new(file).unwrap();
+    //         self.effects_sink.append(source);
+    //     }
+    // }
 }
