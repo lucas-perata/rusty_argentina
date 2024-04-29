@@ -48,4 +48,5 @@ https://docs.rs/rodio/latest/rodio/
 https://nolanprice.com/post/rust-game-pt2/
 Expand the basics -> 
 https://bfnightly.bracketproductions.com/chapter_47.html
-
++ Traps and others cap 14
++ Power ups cap 13

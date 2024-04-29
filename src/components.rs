@@ -8,7 +8,9 @@ pub struct Render {
 }
 
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Player;
+pub struct Player {
+    pub map_level: u32,
+}
 pub struct Enemy;
 pub struct MovingRandomly;
 pub struct WantsToMove {
