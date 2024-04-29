@@ -48,7 +48,7 @@ impl State {
         map_builder
             .monster_spawns
             .iter()
-            .for_each(|pos| spawn_monster(&mut ecs, &mut rng, *pos));
+            .for_each(|pos| spawn_entity(&mut ecs, &mut rng, *pos));
         // map_builder
         //     .rooms
         //     .iter()
@@ -78,7 +78,7 @@ impl State {
         map_builder
             .monster_spawns
             .iter()
-            .for_each(|pos| spawn_monster(&mut self.ecs, &mut rng, *pos));
+            .for_each(|pos| spawn_entity(&mut self.ecs, &mut rng, *pos));
         // map_builder
         //     .rooms
         //     .iter()

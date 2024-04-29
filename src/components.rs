@@ -27,6 +27,14 @@ pub struct Name(pub String);
 pub struct ChasingPlayer;
 pub struct Item;
 pub struct AmuletOfYala;
+pub struct ProvidesHealing {
+    pub amount: i32,
+}
+pub struct ProvidesDungeonMap;
+pub struct ActivateItem {
+    pub used_by: Entity,
+    pub item: Entity,
+}
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct FieldOfView {
@@ -52,3 +60,6 @@ impl FieldOfView {
         }
     }
 }
+
+#[derive(Clone, PartialEq)]
+pub struct Carried(pub Entity);

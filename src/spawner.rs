@@ -65,3 +65,38 @@ pub fn spawn_amulet_of_justicialismo(ecs: &mut World, pos: Point) {
         Name("Dije justicialista".to_string()),
     ));
 }
+
+pub fn spawn_entity(ecs: &mut World, rng: &mut RandomNumberGenerator, pos: Point) {
+    let roll = rng.roll_dice(1, 10);
+    match roll {
+        1..=2 => spawn_healing_potion(ecs, pos),
+        3 => spawn_magic_map(ecs, pos),
+        _ => spawn_monster(ecs, rng, pos),
+    }
+}
+
+pub fn spawn_healing_potion(ecs: &mut World, pos: Point) {
+    ecs.push((
+        Item,
+        pos,
+        Render {
+            color: ColorPair::new(WHITE, BLACK),
+            glyph: to_cp437('!'),
+        },
+        Name("Poción sanadora".to_string()),
+        ProvidesHealing { amount: 6 },
+    ));
+}
+
+pub fn spawn_magic_map(ecs: &mut World, pos: Point) {
+    ecs.push((
+        Item,
+        pos,
+        Render {
+            color: ColorPair::new(WHITE, BLACK),
+            glyph: to_cp437('{'),
+        },
+        Name("Mapa secreto".to_string()),
+        ProvidesDungeonMap {},
+    ));
+}
