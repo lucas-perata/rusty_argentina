@@ -1,4 +1,4 @@
-#+TITLE:Rusty Argentina 
+#+TITLE:Rusty Dungeon 
 
 ** Descripción 
 Dungeon crawler con niveles generados de forma procedural, monstruos y turn-based. 
@@ -50,3 +50,4 @@ Expand the basics ->
 https://bfnightly.bracketproductions.com/chapter_47.html
 + Traps and others cap 14
 + Power ups cap 13
++ Realtime interaction
