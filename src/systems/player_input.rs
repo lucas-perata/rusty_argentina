@@ -45,7 +45,7 @@ pub fn player_input(
                         commands.remove_component::<Point>(*entity);
                         commands.add_component(*entity, Carried(player));
 
-                        if let Ok(e) = ecs.entriy_ref(*entity) {
+                        if let Ok(e) = ecs.entry_ref(*entity) {
                             if e.get_component::<Weapon>().is_ok() {
                                 <(Entity, &Carried, &Weapon)>::query()
                                     .iter(ecs)
