@@ -29,6 +29,7 @@ pub fn spawn_player(ecs: &mut World, pos: Point) {
             max: 10,
         },
         FieldOfView::new(8),
+        Damage(1),
     ));
 }
 
@@ -63,9 +64,9 @@ pub fn spawn_player(ecs: &mut World, pos: Point) {
 //     (2, "Orc".to_string(), to_cp437('o'), 6)
 // }
 
-fn double_headed() -> (i32, String, FontCharType, i32) {
-    (4, "Double".to_string(), to_cp437('E'), 10)
-}
+// fn double_headed() -> (i32, String, FontCharType, i32) {
+//     (4, "Double".to_string(), to_cp437('E'), 10)
+// }
 
 pub fn spawn_amulet_of_justicialismo(ecs: &mut World, pos: Point) {
     ecs.push((

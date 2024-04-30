@@ -37,6 +37,8 @@ pub struct ActivateItem {
     pub used_by: Entity,
     pub item: Entity,
 }
+pub struct Damage(pub i32);
+pub struct Weapon;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct FieldOfView {
