@@ -11,3 +11,5 @@ bracket-lib = { version = "~0.8.1", features = [
 ], default-features = false }
 legion = "=0.3.1"
 rodio = "0.16.0"
+serde = { version = "=1.0.155" }
+ron = "=0.6.1"
