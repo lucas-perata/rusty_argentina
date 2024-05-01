@@ -25,6 +25,9 @@ pub struct Health {
     pub current: i32,
     pub max: i32,
 }
+pub struct Points {
+    pub current: i32,
+}
 pub struct Name(pub String);
 pub struct ChasingPlayer;
 pub struct Item;

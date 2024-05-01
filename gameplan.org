@@ -36,11 +36,10 @@ Tu país atravesó una fuerte crisis cuando los gorilas llegaron al poder. Son c
 
 ** TODOs
 *** DONE fix mouse over info not rendering
-*** TODO fix map not always connecting
-*** TODO fix dije position 
-*** TODO fix dije aparece entre paredes
-*** TODO fix automata map builder out of bound
-*** TODO monsters not chasing diagonally 
+*** DONE fix automata map builder out of bound
+*** DONE monsters not chasing diagonally 
+*** TODO add score
+
 
 ** Agregados generales
 Music y efectos de sonido -> 

@@ -6,9 +6,13 @@ use crate::prelude::*;
 #[read_component(Item)]
 #[read_component(Carried)]
 #[read_component(Name)]
+#[read_component(Points)]
 pub fn hud(ecs: &SubWorld) {
     let mut health_query = <&Health>::query().filter(component::<Player>());
     let player_health = health_query.iter(ecs).next().expect("Error HEALTH");
+
+    let mut score_query = <&Points>::query().filter(component::<Player>());
+    let player_score = score_query.iter(ecs).nth(0).unwrap();
 
     let mut draw_batch = DrawBatch::new();
     draw_batch.target(3);
@@ -52,6 +56,11 @@ pub fn hud(ecs: &SubWorld) {
     draw_batch.print_color_centered(
         0,
         format!("Vida: {} / {}", player_health.current, player_health.max),
+        ColorPair::new(WHITE, RED),
+    );
+    draw_batch.print_color_right(
+        Point::new(SCREEN_WIDTH * 2, 3),
+        format!("Puntaje: {}", player_score.current),
         ColorPair::new(WHITE, RED),
     );
     draw_batch.submit(10000).expect("Batch error");

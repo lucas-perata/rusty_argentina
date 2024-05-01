@@ -3,6 +3,7 @@ use crate::prelude::*;
 #[system]
 #[read_component(WantsToAttack)]
 #[write_component(Health)]
+#[write_component(Points)]
 #[read_component(Player)]
 #[read_component(Damage)]
 #[read_component(Carried)]
@@ -38,7 +39,7 @@ pub fn combat(ecs: &mut SubWorld, commands: &mut CommandBuffer) {
         let final_damage = base_damage + weapon_damage;
         println!("final damage {}", final_damage);
 
-        if let Ok(mut health) = ecs
+        if let Ok(health) = ecs
             .entry_mut(*victim)
             .unwrap()
             .get_component_mut::<Health>()
@@ -46,9 +47,15 @@ pub fn combat(ecs: &mut SubWorld, commands: &mut CommandBuffer) {
             println!("Vida antes del ataque: {}", health.current);
             health.current -= final_damage;
             if health.current < 1 && !is_player {
+                if let Ok(points) = ecs
+                    .entry_mut(*attacker)
+                    .unwrap()
+                    .get_component_mut::<Points>()
+                {
+                    points.current += 1;
+                }
                 commands.remove(*victim);
             }
-            println!("Vida después del ataque: {}", health.current);
         }
         commands.remove(*message);
     })
