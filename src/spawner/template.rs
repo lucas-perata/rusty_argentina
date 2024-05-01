@@ -8,6 +8,7 @@ use std::fs::File;
 pub enum EntityType {
     Enemy,
     Item,
+    Trap,
 }
 
 #[derive(Clone, Deserialize, Debug)]
@@ -75,7 +76,19 @@ impl Templates {
             Name(template.name.clone()),
         ));
         match template.entity_type {
-            EntityType::Item => commands.add_component(entity, Item {}),
+            EntityType::Item => {
+                commands.add_component(entity, Item {});
+            }
+            EntityType::Trap => {
+                commands.add_component(entity, Trap {});
+                commands.add_component(
+                    entity,
+                    Health {
+                        current: template.hp.unwrap(),
+                        max: template.hp.unwrap(),
+                    },
+                );
+            }
             EntityType::Enemy => {
                 commands.add_component(entity, Enemy {});
                 commands.add_component(entity, FieldOfView::new(template.fov.unwrap()));
@@ -104,6 +117,11 @@ impl Templates {
             commands.add_component(entity, Damage(*damage));
             if template.entity_type == EntityType::Item {
                 commands.add_component(entity, Weapon {});
+            }
+            if template.entity_type == EntityType::Trap {
+                commands.add_component(entity, Enemy {});
+                commands.add_component(entity, ChasingPlayer {});
+                commands.add_component(entity, FieldOfView::new(1));
             }
         }
     }

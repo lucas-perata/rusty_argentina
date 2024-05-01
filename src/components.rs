@@ -12,6 +12,7 @@ pub struct Player {
     pub map_level: u32,
 }
 pub struct Enemy;
+pub struct Trap;
 pub struct MovingRandomly;
 pub struct WantsToMove {
     pub entity: Entity,

@@ -63,11 +63,12 @@ Templates(
             fov:Some(7),
         ),
         Template(
-            entity_type: Enemy,
-            name : "Trampa", glyph : 'i', levels : [ 1, 2 ],
+            entity_type: Trap,
+            name : "Trampa", glyph : 'i', levels : [ 0, 1, 2 ],
             hp : Some(2),
-            frequency: 1,
-            base_damage: Some(2)
+            frequency: 4,
+            base_damage: Some(1),
+            fov: Some(1)
         ),
 
     ],
