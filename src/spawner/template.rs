@@ -20,6 +20,7 @@ pub struct Template {
     pub provides: Option<Vec<(String, i32)>>,
     pub hp: Option<i32>,
     pub base_damage: Option<i32>,
+    pub fov: Option<i32>,
 }
 
 #[derive(Clone, Deserialize, Debug)]
@@ -77,7 +78,7 @@ impl Templates {
             EntityType::Item => commands.add_component(entity, Item {}),
             EntityType::Enemy => {
                 commands.add_component(entity, Enemy {});
-                commands.add_component(entity, FieldOfView::new(6));
+                commands.add_component(entity, FieldOfView::new(template.fov.unwrap()));
                 commands.add_component(entity, ChasingPlayer {});
                 commands.add_component(
                     entity,
