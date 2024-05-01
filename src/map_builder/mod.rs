@@ -7,7 +7,7 @@ use self::{
     automata::CellularAutomataArchitect,
     drunkard::DrunkardsWalkArchitect,
     rooms::RoomsArchitect,
-    themes::{DungeonTheme, ForestTheme},
+    themes::{DungeonTheme, ForestTheme, MagicTheme},
 };
 mod automata;
 mod drunkard;
@@ -47,8 +47,9 @@ impl MapBuilder {
         let mut mb = architect.new(rng);
         apply_prefab(&mut mb, rng);
 
-        mb.theme = match rng.range(0, 2) {
-            0 => DungeonTheme::new(),
+        mb.theme = match rng.range(0, 5) {
+            0..=3 => DungeonTheme::new(),
+            4 => MagicTheme::new(),
             _ => ForestTheme::new(),
         };
 
